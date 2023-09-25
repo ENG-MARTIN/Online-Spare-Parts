@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+{% load static %}
+{% csrf_token %}
+{% block title %}Tyre saler{% endblock title  %}
+<link rel="stylesheet" href="{% static 'app/css/style.css' %}" />
+<link rel="stylesheet" href="{% static 'app/css/all.min.css' %}" />
+<style>
+</style>
+{% block main-content%}
+<div class="container">
+<div id="cart-icon" class="cart-icon" onclick="showProductModal('','{{ product.name }}','{{ product.brand }}', '{{ product.size }}', '{{ product.price }}')">{{ product.image.url }}
+    <img src="{% static 'app/images/products/cartIcon.png' %}" width="50" height="50" alt="Cart"> 
+    <span id="cart-badge">0</span>
+ </div>
+<br>
+  <div class="row">
+    {% for product in Products %}
+      <div class="col-md-4 mb-4">
+        <div class="card" style="border:1px solid; height:600px">
+          <div style="width:100%;">
+            <img src="{{ product.image.url }}" height="400" width="300" class="card-img-top" alt="{{ product.name }}">      
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">{{ product.name }}</h5>
+            <p class="card-text">Brand: {{ product.brand }}</p>
+            <p class="card-text">Size: {{ product.size }}</p>
+            <p class="card-text">Price: shs.{{ product.price }}</p>
+            <a href="#" class="btn btn-primary" onclick="addToCart('{{ product.image.url }}','{{ product.name }}', '{{ product.size }}', '{{ product.price }}')">Add to Cart</a>
+
+           
+
+          </div>
+        </div>
+      </div>
+      
+      <!-- pop up -->
+      <div class="modal fade" id="productModal" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="productModalLabel">Product Details</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            
+            <div class="modal-body">
+              <img id="modal-product-image" src="{%static 'app/images/LOGO1.png'%}" alt="Product Image" class="img-fluid mb-3">
+              <p><strong>Name:</strong> <span id="modal-product-name"></span>{{ product.name }}</p>
+              <p><strong>Brand:</strong> <span id="modal-product-brand"></span>{{ product.brand }}</p>
+              <p><strong>Size:</strong> <span id="modal-product-size"></span>{{ product.size }}</p>
+              <p><strong>Price:</strong> shs.<span id="modal-product-price"></span>{{ product.price }}</p>
+              <p><strong>Total:</strong> shs.<span id="modal-product-total"></span></p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary"><a href="https://wa.me/+256726721362?" style="color: #fff;text-decoration:none">Order Now</a></button>
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+<script>
+        // JavaScript for adding items to cart and displaying cart   
+        function addToCart(image,productName, size, price) {      
+          let CartItems=['{{ product.name }}'] 
+            // Update cart badge
+            var cartBadge = document.getElementById('cart-badge');
+            cartBadge.textContent = parseInt(cartBadge.textContent) + 1;
+            // Send the item to the server using AJAX
+        }
+
+    function showProductModal(image, productName, brand, size, price) { 
+            // Update modal content
+            document.getElementById('modal-product-image').src = image;
+            document.getElementById('modal-product-name').textContent = productName;
+            document.getElementById('modal-product-brand').textContent = brand;
+            document.getElementById('modal-product-size').textContent = size;
+            document.getElementById('modal-product-price').textContent = price;
+      
+            var total = parseFloat(price); //// Extract numerical value from "shs.XXX" format
+            document.getElementById('modal-product-total').textContent = total;        
+            // Show modal
+            var productModal = new bootstrap.Modal(document.getElementById('productModal'));
+            productModal.show();
+        }
+        
+function orderNow(){
+           var whatsappurl = "https://wa.me/+256706491641?text="
+               + "SALES_ID  :" + productName + "%0a"
+               + "Agent ID  :" + brand + "%0a"
+               + "MOBILE NUMBER:" + size + "%0a"
+               + "TYRE SIZE :" + price + "%0a"
+
+           window.open(whatsappurl, "_blank")   
+}       
+</script>
+{% endblock main-content %}

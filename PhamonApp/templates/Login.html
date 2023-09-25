@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+{% load static%}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'app/css/LOGIN.css' %}" />
+</head>
+<body>
+    <div>
+        <div class="flag">
+            <h2>Phamon  Distirbutors & Co. LTD</h2>
+            <h4>Tyre solver</h4>
+        </div>
+    
+            <div class="wrapper">
+                <img src="{%static 'app/images/LOGO1.png'%}" width="130" height="100" style="margin-left:80px"/>
+    <div class="title-text">
+        <div class="title login">Login Form</div>
+    </div>
+    <div class="form-container">
+        
+        <div class="form-inner">
+            <section class="login">
+                <form action="{%url 'cartgo'%}" method="POST">
+                    {% csrf_token %}
+    <div class="field">
+        <input type="email" name="email" class="input" placeholder="Enter your Email"/>
+    </div>
+    <div class="field">
+        <input type="password" name="password" class="input" placeholder="Enter your password"/>
+    </div>
+    <div class="pass-link">
+        <a href="#">Forgot username?</a>
+    </div>
+    <div class="field">
+<input type="submit" class="inputbtn" value="LOGIN"/>
+    </div>
+    <div class="signup-link">Dont have an account?
+    <a href="{%url 'registration'%}">Signup now</a>
+    </div>
+</form>
+            </section>
+    
+    <!---SIGUP FORM-->
+        </div>
+    </div></div>
+        </div>
+    </div>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <div><h5 style="text-align:center">Developed by :<a href="https://wa.me/+256726721362?">Ssebakumba Martin</a></h5></div>
+
+</body>
+</html>

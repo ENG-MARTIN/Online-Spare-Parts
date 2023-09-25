@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Home{% endblock title  %}
+<style>
+  .container{
+    border: solid 1px;
+    margin-top:5px;
+    border-radius:10px;
+    background:url({% static 'app/images/products/pngegg1.png' %});
+    background-position: center;
+    
+  }
+</style>
+{% block main-content%}
+  <div class="container">
+    <div>
+      <img src="{%static 'app/images/LOGO1.png'%}" width="130" height="100" style="margin-left:80px"/>  
+    </div>
+    <form>
+    <div class=" col-md-6">
+        <label for="formGroupExampleInput" class="form-label">Enter Email</label>
+        <input type="text" class="form-control" id="formGroupExampleInput" name="email" placeholder="Enter your Email">
+      </div>
+      <div class=" col-md-6">
+        <label for="formGroupExampleInput2" class="form-label">Firstname</label>
+        <input type="text" class="form-control" id="formGroupExampleInput2" name="firstname" placeholder="Provide firstname">
+      </div>
+      <div class=" col-md-6">
+        <label for="formGroupExampleInput2" class="form-label">Lastname</label>
+        <input type="text" class="form-control" id="formGroupExampleInput2" name="lastname" placeholder="Provide lastname">
+      </div>
+      <div class=" col-md-6">
+        <label for="formGroupExampleInput2" class="form-label">Telephone</label>
+        <input type="Telephone" class="form-control" id="formGroupExampleInput2" name="phone" placeholder="Tel: e.g +256726721362">
+      </div>
+      <div class=" col-md-6">
+        <label for="formGroupExampleInput2" class="form-label">Address</label>
+        <input type="text" class="form-control" id="formGroupExampleInput2" name="phone" placeholder=" e.g Phamon tyres -William street">
+      </div>
+      <br>
+      <div class="md-6">
+        <button type="submit" class="btn btn-primary">Sign in</button>
+      </div>
+      <br>
+    </form>
+    </div>
+    {% endblock main-content %}

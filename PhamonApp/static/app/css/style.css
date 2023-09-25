@@ -1,0 +1,69 @@
+
+  .card {
+    border: 1px solid #ddd; /* Add border to the card */
+    margin-bottom: 20px; /* Add space between cards */
+    justify-content: center;
+    align-items: center;
+  }
+
+  .card img {
+    max-width: 300px; /* Make sure the image fits within the card */
+  }
+
+  .card-body {
+    text-align: center; /* Center the content within the card body */
+  }
+
+  .card-title {
+    font-size: 1.2rem; /* Increase the font size of the product name */
+    margin-bottom: 10px; /* Add space below the product name */
+  }
+
+  .card-text {
+    font-size: 0.9rem; /* Adjust the font size of additional information */
+    color: #666; /* Add a darker color to the text */
+    margin-bottom: 8px; /* Add space below each line of text */
+  }
+
+  .btn-primary {
+    width: 100%; /* Make the button full width */
+  }
+
+  #cart-icon {
+    position: fixed; /* Make the cart icon fixed on the screen */
+    top: 100px; /* Adjust the distance from the bottom */
+    right: 20px; /* Adjust the distance from the right */
+    cursor: pointer; /* Add pointer cursor on hover */
+  }
+
+  #cart-badge {
+    background-color: #007bff; /* Add a background color to the badge */
+    color: #fff; /* Make the text white */
+    border-radius: 50%; /* Make it circular */
+    padding: 5px 8px; /* Adjust padding */
+    font-size: 0.8rem; /* Adjust font size */
+    position: absolute; /* Position it relative to the cart icon */
+    top: 0; /* Position it at the top */
+    right: 0; /* Position it at the right */
+  }
+
+  #cart-items {
+    background-color: #fff; /* Add a background color to the cart items */
+    border: 1px solid #ddd; /* Add a border */
+    padding: 10px; /* Add padding */
+    position: fixed; /* Position it fixed on the screen */
+    bottom: 60px; /* Adjust the distance from the bottom */
+    right: 20px; /* Adjust the distance from the right */
+    max-height: 300px; /* Set a maximum height for the cart items */
+    overflow-y: auto; /* Add a scrollbar if necessary */
+  }
+
+  #cart-list {
+    list-style-type: none; /* Remove bullet points */
+    padding: 0; /* Remove default padding */
+  }
+
+  #cart-list li {
+    font-size: 0.9rem; /* Adjust font size of cart items */
+    margin-bottom: 8px; /* Add space between items */
+  }
